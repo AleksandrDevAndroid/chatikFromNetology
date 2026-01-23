@@ -46,7 +46,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
     fun likeById(id: Long) {
         thread {
-            val flag = edited.value?.likedByMe
+            val flag = data.value?.posts?.find { it.id == id }?.likedByMe
             edited.value.let { post ->
                 if (flag != true) {
                     repository.likeById(id)
