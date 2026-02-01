@@ -1,5 +1,6 @@
 package ru.netology.nmedia.repository
 
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Call
@@ -25,7 +26,6 @@ class PostRepositoryImpl : PostRepository {
         private const val BASE_URL = "http://10.0.2.2:9999"
         private val jsonType = "application/json".toMediaType()
     }
-
 
     override fun getAll(): List<Post> {
         val request: Request = Request.Builder()

@@ -49,7 +49,7 @@ kotlin {
 }
 
 dependencies {
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")
+    implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -66,5 +66,6 @@ dependencies {
     implementation(libs.play.services)
     implementation(libs.okhttp)
     coreLibraryDesugaring(libs.desugaring)
+    implementation(libs.glide)
 
 }

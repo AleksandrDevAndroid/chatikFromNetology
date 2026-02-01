@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
@@ -34,7 +35,6 @@ class FeedFragment : Fragment() {
 
             override fun onLike(post: Post) {
                 viewModel.likeById(post.id)
-                viewModel.loadPosts()
             }
 
             override fun onRemove(post: Post) {
@@ -53,6 +53,7 @@ class FeedFragment : Fragment() {
                 startActivity(shareIntent)
             }
         })
+
 
         binding.swiperefresh.setOnRefreshListener {
             viewModel.loadPosts()
