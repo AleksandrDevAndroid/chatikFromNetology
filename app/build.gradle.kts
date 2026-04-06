@@ -22,6 +22,7 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 
@@ -49,6 +50,8 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.logging.interceptor)
+    implementation(libs.converter.gson)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -64,7 +67,6 @@ dependencies {
     implementation(platform(libs.firebase))
     implementation(libs.firebase.messaging)
     implementation(libs.play.services)
-    implementation(libs.okhttp)
     coreLibraryDesugaring(libs.desugaring)
     implementation(libs.glide)
 
