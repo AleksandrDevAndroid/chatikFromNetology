@@ -61,6 +61,9 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 }
                 override fun onError(error: Throwable) {
                     _data.value
+                    Toast.makeText(getApplication(),
+                        "Произошла ошибка",
+                        Toast.LENGTH_SHORT).show()
                 }
             })
         } else {
@@ -77,6 +80,9 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
                 override fun onError(error: Throwable) {
                     _data.value
+                    Toast.makeText(getApplication(),
+                        "Произошла ошибка",
+                        Toast.LENGTH_SHORT).show()
                 }
             })
         }
@@ -86,18 +92,15 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
             edited.value?.let {
                 repository.savePost(it, object : PostRepository.GetPostCallback {
                     override fun onSuccess(post: Post) {
-
                         repository.getAllAsync(object : PostRepository.GetAllCallback {
                             override fun onSuccess(posts: List<Post>) {
                                 try {
-
                                     _postCreated.postValue(Unit)
                                 } catch (e: Exception) {
                                     onError(e)
                                     edited.value = empty
                                 }
                             }
-
                             override fun onError(e: Throwable) {
                                 Toast.makeText(
                                     getApplication(),
